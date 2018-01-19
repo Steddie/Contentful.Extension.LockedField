@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Locked field</title>
+    <!-- Contentful's default styles -->
+    <link rel="stylesheet" href="https://contentful.github.io/ui-extensions-sdk/cf-extension.css">
+    <!-- UI Extensions SDK -->
+    <script src="https://contentful.github.io/ui-extensions-sdk/cf-extension-api.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+        function LockedField(ctfExt){
+            var value = ctfExt.field.getValue();
+            if (value != "" && value != " ") {
+                ctfExt.field.disabled = true;
+            }
+        }
+
+        window.contentfulExtension.init(LockedField);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "id": "lockedfield",
+    "name": "Locked field",
+    "src": "./index.html",
+    "fieldTypes": ["Text", "Number"]
+  }
