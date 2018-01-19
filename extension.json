@@ -2,5 +2,5 @@
     "id": "lockedfield",
     "name": "Locked field",
     "src": "./index.html",
-    "fieldTypes": ["Text", "Number"]
+    "fieldTypes": ["Text","Integer","Number"]
   }
