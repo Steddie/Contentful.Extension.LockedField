@@ -1,6 +1,6 @@
 {
     "id": "lockedfield",
     "name": "Locked field",
-    "src": "./index.html",
-    "fieldTypes": ["Text","Integer","Number"]
+    "srcdoc": "./index.html",
+    "fieldTypes": ["Symbol","Text","Integer","Number"]
   }

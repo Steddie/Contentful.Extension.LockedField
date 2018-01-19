@@ -9,14 +9,37 @@
     <script src="https://contentful.github.io/ui-extensions-sdk/cf-extension-api.js"></script>
   </head>
   <body>
-    <div id="content"></div>
+    <input type="text" class="cf-form-input" id="lockedInput"/>
     <script>
+        var ctfApi;
+        var inp;
+
         function LockedField(ctfExt){
-            var value = ctfExt.field.getValue();
-            if (value != "" && value != " ") {
-                ctfExt.field.disabled = true;
+           ctfApi = ctfExt;
+            var value = ctfApi.field.getValue();
+            inp = document.querySelector("#lockedInput");
+
+            // Set initial value
+            if (value !== "" && value !== " " && value != undefined) {
+              inp.value = value;
+              inp.disabled = true;
+            }
+            else {
+              inp.addEventListener("change", UpdateValue);
             }
         }
+
+        function UpdateValue(){
+            if (inp.value != ctfApi.field.getValue()) {
+
+              if(ctfApi.field.type == "Integer" || ctfApi.field.type == "Number") {
+                ctfApi.field.setValue(parseInt(inp.value));
+              }
+              else {
+                ctfApi.field.setValue(inp.value);
+              }
+            }
+         }
 
         window.contentfulExtension.init(LockedField);
     </script>
